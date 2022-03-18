@@ -18,6 +18,7 @@ class Solution:
 
         return ans
 
+
 if __name__ == '__main__':
     sol = Solution()
     paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
