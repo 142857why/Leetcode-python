@@ -1,18 +1,30 @@
 from typing import List
+from collections import defaultdict
 
 
 class Encrypter:
 
     def __init__(self, keys: List[str], values: List[str], dictionary: List[str]):
-        self._keys = keys
-        self._values = values
-        self._dictionary = dictionary
+        self.d = defaultdict(int)
+        self.m = {}
+        for i, j in zip(keys, values):
+            self.m[i] = j
+
+        for i in dictionary:
+            l = []
+            for x in i:
+                l.append(self.m[x])
+            self.d[''.join(l)] += 1
+
+        print(self.d)
+        print(self.m)
+
 
     def encrypt(self, word1: str) -> str:
-        return ''.join(values[keys.index(x)] for x in word1)
+        return ''.join(self.m[x] for x in word1)
 
     def decrypt(self, word2: str) -> int:
-        pass
+        return self.d[word2]
 
 
 if __name__ == '__main__':
