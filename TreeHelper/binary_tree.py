@@ -4,6 +4,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 def treeNodeToString(root):
     if not root:
         return "[]"
@@ -22,6 +23,7 @@ def treeNodeToString(root):
         queue.append(node.left)
         queue.append(node.right)
     return "[" + output[:-2] + "]"
+
 
 def stringToTreeNode(input):
     input = input.strip()
@@ -55,6 +57,7 @@ def stringToTreeNode(input):
             node.right = TreeNode(rightNumber)
             nodeQueue.append(node.right)
     return root
+
 
 def prettyPrintTree(node, prefix="", isLeft=True):
     if not node:
