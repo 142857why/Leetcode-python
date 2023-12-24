@@ -18,13 +18,12 @@ class Solution:
             for i in range(len(chars)):
                 tmp = chars[i]
                 chars[i] = '*'
-                newWord = ''.join(chars) # 将hit 转化成 *it, h*t, hi*
+                newWord = ''.join(chars)  # 将hit 转化成 *it, h*t, hi*
                 addWord(newWord)
                 id2 = wordId[newWord]
                 edge[id1].append(id2)
                 edge[id2].append(id1)
-                chars[i] = tmp # 修改回去，方便下一个虚拟单词
-
+                chars[i] = tmp  # 修改回去，方便下一个虚拟单词
 
         wordId = dict()
         edge = collections.defaultdict(list)
@@ -75,6 +74,6 @@ class Solution:
 if __name__ == '__main__':
     beginWord = 'hit'
     endWord = 'cog'
-    l = ["hot","dot","dog","lot","log","cog"]
+    l = ["hot", "dot", "dog", "lot", "log", "cog"]
     sol = Solution()
     print(sol.ladderLength(beginWord, endWord, l))
